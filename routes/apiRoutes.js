@@ -12,7 +12,6 @@ router.get("/", function(req, res) {
 router.get("/burgers", function(req, res) {
   db.Burger.findAll()
     .then(function(allBurgers) {
-      // console.log(allBurgers);
       var hbsObject = { burger: allBurgers };
       return res.render("index", hbsObject);
     });
@@ -23,7 +22,6 @@ router.post("/burgers/create", function(req, res) {
   db.Burger.create({
     burger_name: req.body.burger_name
   }).then(function(newBurger) {
-    // console.log(newBurger);
     res.redirect("/");
   });
 });
